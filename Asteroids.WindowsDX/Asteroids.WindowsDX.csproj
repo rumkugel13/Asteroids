@@ -1,0 +1,67 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <OutputType>WinExe</OutputType>
+    <MonoGamePlatform>Windows</MonoGamePlatform>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyTitle>Asteroids.WindowsDX</AssemblyTitle>
+    <Product>Asteroids.WindowsDX</Product>
+    <Copyright>Copyright © rumkugel13 2019</Copyright>
+    <Version>0.1.0</Version>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Asteroid-icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <Import Project="..\Asteroids.Shared\Asteroids.Shared.projitems" Label="Shared" />
+  <ItemGroup Condition="'$(Configuration)' == 'Debug'">
+    <Reference Include="Kadro, Version=0.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\Libraries\Debug\Kadro.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Lidgren.Network.MultiTarget">
+      <HintPath>..\Libraries\Debug\Lidgren.Network.MultiTarget.dll</HintPath>
+    </Reference>
+    <Reference Include="RKDnet, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\Libraries\Debug\RKDnet.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)' == 'Release'">
+    <Reference Include="Kadro, Version=0.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\Libraries\Release\Kadro.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Lidgren.Network.MultiTarget">
+      <HintPath>..\Libraries\Release\Lidgren.Network.MultiTarget.dll</HintPath>
+    </Reference>
+    <Reference Include="RKDnet, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\Libraries\Release\RKDnet.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Asteroid-icon.ico" />
+    <Content Include="Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.0.1641" />
+    <PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.8.0.1641" />
+  </ItemGroup>
+</Project>

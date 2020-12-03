@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>6efba8a9-a407-4029-bdd0-651d22a87386</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Asteroids.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AsteroidsGame.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Background.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ClientEntityFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ClientInputManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\AccelerationComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\ChildComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\CollidableComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\GunComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\IntentComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\LifeComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\LifetimeComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\MotionComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\ParentComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\ParticleSpawnComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\RespawnComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\ScoreComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\ShieldComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\SpriteAnimationComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\SpriteListComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\TagComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\TargetComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\TextureComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\TransformComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EntityFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EntityType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Game1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameScenes\ConnectingScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameScenes\ConnectionErrorScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameScenes\GameOverScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameScenes\MainMenuScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameScenes\MultiplayerGameOverScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameScenes\MultiplayerGameScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameScenes\MultiplayerLobbyScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameScenes\SettingsMenuScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameScenes\SingleplayerGameScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameScenes\WaitingForGameStartScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)InputManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IntentManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NetworkGameScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scoreboard.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ScoreboardItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ServerEntityFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Signal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SignalManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Systems\CollisionDetectionSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Systems\CollisionResponseSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Systems\LifetimeSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Systems\MotionControlSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Systems\MotionSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Systems\ParticleSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Systems\RespawnTimeoutSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Systems\ScoreboardSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Systems\ShootSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Systems\SpriteAnimationRenderSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Systems\TagCountSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Systems\TargetingSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Systems\TextureRenderSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UserConfig.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <MonoGameContentReference Include="$(MSBuildThisFileDirectory)Content\Content.mgcb" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Content.mgcb" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Arial_10.spritefont" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Arial_12.spritefont" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Arial_14.spritefont" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Arial_16.spritefont" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Arial_18.spritefont" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Arial_20.spritefont" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Arial_22.spritefont" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Arial_24.spritefont" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Arial_26.spritefont" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Arial_28.spritefont" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Arial_30.spritefont" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Arial_32.spritefont" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Arial_64.spritefont" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Arial_8.spritefont" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Particles\circle.png" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Particles\diamond.png" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Particles\pixel.png" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Particles\star.png" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Particles\stroke.png" />
+    <None Include="$(MSBuildThisFileDirectory)Content\spaceship_convex_hull_points.ods" />
+    <None Include="$(MSBuildThisFileDirectory)Content\spaceship_origins.txt" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Spritesheets\flame_animation_sheet.xml" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Textures\asteroid3-512.png" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Textures\asteroid_new-512.png" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Textures\asteroid_new-512.png~" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Textures\asteroid_new2-512.png" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Textures\flame_animation_sheet.png" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Textures\missile-512.png" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Textures\ring-512.png" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Textures\spaceship_type_1.png" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Textures\triangle-32.png" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Textures\triangle_filled-32.png" />
+  </ItemGroup>
+</Project>

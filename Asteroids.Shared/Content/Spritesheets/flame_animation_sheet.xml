@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Kadro="Kadro">
+  <Asset Type="Kadro:SpriteSheet">
+    <Name>flame_animation_sheet</Name>
+    <sprites>
+      <Item>
+        <Key>flame_animation_10000</Key>
+        <Value>0 0 900 800</Value>
+      </Item>
+      <Item>
+        <Key>flame_animation_10001</Key>
+        <Value>901 0 900 800</Value>
+      </Item>
+      <Item>
+        <Key>flame_animation_10002</Key>
+        <Value>0 801 900 800</Value>
+      </Item>
+	  <Item>
+        <Key>flame_animation_10003</Key>
+        <Value>901 801 900 800</Value>
+      </Item>
+	  <Item>
+        <Key>flame_animation_10004</Key>
+        <Value>1802 0 900 800</Value>
+      </Item>
+    </sprites>
+    <animations>
+      <Item>
+        <Key>flame_animation</Key>
+        <Value>
+            <Item>flame_animation_10000</Item>
+			<Item>flame_animation_10001</Item>
+			<Item>flame_animation_10002</Item>
+			<Item>flame_animation_10003</Item>
+			<Item>flame_animation_10004</Item>
+        </Value>
+      </Item>
+    </animations>
+  </Asset>
+</XnaContent>

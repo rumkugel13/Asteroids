@@ -1,0 +1,8 @@
+admin features:
++room list + client in rooms list
++client list + ip/port
++kick clients
+-move clients to other rooms
++create new rooms
++close rooms
+-change room size limits

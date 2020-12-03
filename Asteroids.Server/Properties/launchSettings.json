@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "Asteroids.Server": {
+      "commandName": "Project"
+    }
+  }
+}

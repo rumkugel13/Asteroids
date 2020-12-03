@@ -1,0 +1,8 @@
+h: 630 oy: 190 von unten: 30% von unten -> bei 512 ca 154 v.u -> 358 v.o.
+w: 470 hw: 235 von links: 50% von links -> bei 382 ca 191 v.u -> 191 v.o.
+origin bei 382x512 -> 191x358 
+
+convex hull: 191x0, 382x358, (382-89)x512, 89x512, 0x358 (not correct, not all these points are outside the object)
+concave: 191x0, (382-89)x358, 382x358, (382-89)x512, 89x512, 0x358, 89x328
+
+convex around origin:
