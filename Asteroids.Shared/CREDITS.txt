@@ -1,0 +1,15 @@
+Libraries:
+Monogame
+- http://www.monogame.net/
+- Copyright © 2009-2020 The MonoGame Team
+- License: Microsoft Public License (Ms-PL)
+Lidgren.Network
+- https://github.com/lidgren/lidgren-network-gen3
+- Copyright (c) 2015 lidgren
+- License: The MIT License (MIT)
+Kadro
+- Not publicly available
+- Copyright © 2019-2020 rumkugel13
+RKDnet
+- Not publicly available
+- Copyright © 2019-2020 rumkugel13
