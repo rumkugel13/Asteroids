@@ -4,7 +4,7 @@
 
 ## About
 
-A clone of the popular Asteroids game made in [MonoGame](https://www.monogame.net/)
+A clone of the popular [Asteroids](https://en.wikipedia.org/wiki/Asteroids_(video_game)) game made in [MonoGame](https://www.monogame.net/)
 
 ## Features
 - Entity Component System (ECS)
