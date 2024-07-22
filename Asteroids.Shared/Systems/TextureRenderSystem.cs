@@ -2,16 +2,19 @@
 using Kadro;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 
 namespace Asteroids.Shared
 {
     public class TextureRenderSystem : EntityDrawSystem
     {
-        public TextureRenderSystem(EntityWorld entityWorld) : base(entityWorld,
+        Texture2D ringTexture;
+
+        public TextureRenderSystem(EntityWorld entityWorld, ContentManager content) : base(entityWorld,
             entityWorld.ComponentManager.GetComponentId<TextureComponent>() | 
             entityWorld.ComponentManager.GetComponentId<TransformComponent>())
         {
-
+            ringTexture = content.Load<Texture2D>(GameConfig.Folders.Textures + "/ring-512");
         }
 
         public override void Draw(float elapsedSeconds, SpriteBatch spriteBatch)
@@ -38,7 +41,6 @@ namespace Asteroids.Shared
                 // TODO: let entities have multiple textures and render them according to their order (or just use layerDepth)
                 if (e.HasComponent<ShieldComponent>())
                 {
-                    Texture2D ringTexture = Assets.Get<Texture2D>(GameConfig.Folders.Textures, "ring-512");
                     spriteBatch.Draw(ringTexture, position, null, Color.White, transform.Rotation, ringTexture.Bounds.Size.ToVector2() / 2f, scale, SpriteEffects.None, 0.8f);
                 }
             }

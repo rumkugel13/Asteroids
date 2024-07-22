@@ -92,8 +92,6 @@ namespace Asteroids.Shared
             this.Components.Add(new TouchpanelInput(this));
             this.performanceCounter = new PerformanceMetrics();
 
-            Assets.Initialize(Content);
-
             this.networkManager = new NetworkManager(UserConfig.Instance.NetworkName);
             this.connectionInfo = new BaseConnection();
 
@@ -110,11 +108,11 @@ namespace Asteroids.Shared
             this.spriteBatch = new SpriteBatch(GraphicsDevice);
             this.Services.AddService(typeof(SpriteBatch), this.spriteBatch);
 
-            GameConfig.Fonts.VerySmall = Assets.Get<SpriteFont>("Fonts/Arial_8");
-            GameConfig.Fonts.Small = Assets.Get<SpriteFont>("Fonts/Arial_12");
-            GameConfig.Fonts.Medium = Assets.Get<SpriteFont>("Fonts/Arial_16");
-            GameConfig.Fonts.Large = Assets.Get<SpriteFont>("Fonts/Arial_24");
-            GameConfig.Fonts.VeryLarge = Assets.Get<SpriteFont>("Fonts/Arial_32");
+            GameConfig.Fonts.VerySmall = this.Content.Load<SpriteFont>("Fonts/Arial_8");
+            GameConfig.Fonts.Small = this.Content.Load<SpriteFont>("Fonts/Arial_12");
+            GameConfig.Fonts.Medium = this.Content.Load<SpriteFont>("Fonts/Arial_16");
+            GameConfig.Fonts.Large = this.Content.Load<SpriteFont>("Fonts/Arial_24");
+            GameConfig.Fonts.VeryLarge = this.Content.Load<SpriteFont>("Fonts/Arial_32");
 
             this.perfLabel = new Label(GameConfig.Fonts.Medium, "Perf");
             this.perfLabel.Alignment = Alignment.Top;

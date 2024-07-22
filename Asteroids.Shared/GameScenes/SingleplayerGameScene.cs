@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Kadro.Extensions;
+using Microsoft.Xna.Framework.Content;
 
 namespace Asteroids.Shared
 {
@@ -38,7 +39,7 @@ namespace Asteroids.Shared
         public SingleplayerGameScene(Game game) : base(game)
         {
             this.Camera.SetBounds(Vector2.Zero, (GameConfig.WorldSize - WindowSettings.RenderArea.Size + WindowSettings.RenderArea.Location).ToVector2());
-            this.background = new Background(Assets.Get<Texture2D>(GameConfig.Folders.Particles, "circle"), new Rectangle(Point.Zero, GameConfig.WorldSize));
+            this.background = new Background(game.Content.Load<Texture2D>(GameConfig.Folders.Particles + "/circle"), new Rectangle(Point.Zero, GameConfig.WorldSize));
 
             this.signalManager = new SignalManager();
             this.intentManager = new IntentManager();
@@ -47,7 +48,7 @@ namespace Asteroids.Shared
 
             List<Texture2D> list = new List<Texture2D>
             {
-                Assets.Get<Texture2D>(GameConfig.Folders.Particles,"circle")
+                game.Content.Load<Texture2D>(GameConfig.Folders.Particles + "/circle")
             };
             this.particleEngine = new ParticleEngine(list, Vector2.Zero, 0, 50, false);
 
@@ -57,7 +58,7 @@ namespace Asteroids.Shared
 
             this.spaceShipSpawnPosition = GameConfig.PlayArea.Center.ToVector2();
             this.entityWorld = new EntityWorld();
-            this.entityFactory = new ClientEntityFactory(this.entityWorld);
+            this.entityFactory = new ClientEntityFactory(this.entityWorld, game.Content);
 
             this.entityWorld.SystemManager.AddSystem(new MotionControlSystem(this.entityWorld));
             this.entityWorld.SystemManager.AddSystem(new LifetimeSystem(this.entityWorld, this.signalManager));
@@ -67,7 +68,7 @@ namespace Asteroids.Shared
             this.entityWorld.SystemManager.AddSystem(new CollisionResponseSystem(this.entityWorld, this.entityFactory, this.signalManager));
             this.entityWorld.SystemManager.AddSystem(new RespawnTimeoutSystem(this.entityWorld));
             this.entityWorld.SystemManager.AddSystem(new TargetingSystem(this.entityWorld));
-            this.entityWorld.SystemManager.AddSystem(new TextureRenderSystem(this.entityWorld));
+            this.entityWorld.SystemManager.AddSystem(new TextureRenderSystem(this.entityWorld, game.Content));
             //this.entityWorld.SystemManager.AddSystem(new ParticleSystem(this.entityWorld, this.particleEngine));
             this.entityWorld.SystemManager.AddSystem(new ScoreboardSystem(this.entityWorld, scoreboardUI));
             this.entityWorld.SystemManager.AddSystem(new SpriteAnimationRenderSystem(this.entityWorld));

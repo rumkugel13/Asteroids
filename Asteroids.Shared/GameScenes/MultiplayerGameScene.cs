@@ -34,19 +34,19 @@ namespace Asteroids.Shared
         public MultiplayerGameScene(Game game, NetworkManager networkManager, BaseConnection connectionInfo) : base (game, networkManager, connectionInfo)
         {
             this.scene = new GUIScene();
-            this.background = new Background(Assets.Get<Texture2D>(GameConfig.Folders.Particles, "circle"), new Rectangle(Point.Zero, GameConfig.WorldSize));
+            this.background = new Background(game.Content.Load<Texture2D>(GameConfig.Folders.Particles + "/circle"), new Rectangle(Point.Zero, GameConfig.WorldSize));
 
             this.intentManager = new IntentManager();
             this.clientInputManager = new ClientInputManager(this.connectionInfo, this.intentManager);
 
             List<Texture2D> list = new List<Texture2D>
             {
-                Assets.Get<Texture2D>(GameConfig.Folders.Particles,"circle")
+                 game.Content.Load<Texture2D>(GameConfig.Folders.Particles + "/circle")
             };
             this.particleEngine = new ParticleEngine(list, Vector2.Zero, 0, 50, false);
 
             this.entityWorld = new EntityWorld();
-            this.entityFactory = new ClientEntityFactory(this.entityWorld);
+            this.entityFactory = new ClientEntityFactory(this.entityWorld, game.Content);
 
             this.scoreboardUI = new Scoreboard(GameConfig.Fonts.Medium, true);
             this.scoreboardUI.Hide();
@@ -54,7 +54,7 @@ namespace Asteroids.Shared
 
             this.entityWorld.SystemManager.AddSystem(new MotionSystem(this.entityWorld)); //dead reckoning (for client side prediction)
             this.entityWorld.SystemManager.AddSystem(new RespawnTimeoutSystem(this.entityWorld));
-            this.entityWorld.SystemManager.AddSystem(new TextureRenderSystem(this.entityWorld));
+            this.entityWorld.SystemManager.AddSystem(new TextureRenderSystem(this.entityWorld, game.Content));
             this.entityWorld.SystemManager.AddSystem(new ScoreboardSystem(this.entityWorld, this.scoreboardUI));
             this.entityWorld.SystemManager.AddSystem(new ParticleSystem(this.entityWorld, this.particleEngine));
 
