@@ -28,6 +28,7 @@ namespace Asteroids.Shared
         private Vector2 spaceShipSpawnPosition;
         private TagCountSystem tagCountSystem;
         private Entity myEntity;
+        private Minimap minimap;
 
         private Label countdown;
         private int countdownValue;
@@ -38,8 +39,8 @@ namespace Asteroids.Shared
 
         public SingleplayerGameScene(Game game) : base(game)
         {
-            this.Camera.SetBounds(Vector2.Zero, (GameConfig.WorldSize - WindowSettings.RenderArea.Size + WindowSettings.RenderArea.Location).ToVector2());
-            this.background = new Background(game.Content.Load<Texture2D>(GameConfig.Folders.Particles + "/circle"), new Rectangle(Point.Zero, GameConfig.WorldSize));
+            this.Camera.SetBounds(Vector2.Zero, GameConfig.WorldSize.ToVector2() * WindowSettings.UnitScale - WindowSettings.RenderArea.Size.ToVector2() + WindowSettings.RenderArea.Location.ToVector2());
+            this.background = new Background(game.Content.Load<Texture2D>(GameConfig.Folders.Particles + "/circle"), new Rectangle(Point.Zero, (GameConfig.WorldSize.ToVector2() * WindowSettings.UnitScale).ToPoint()));
 
             this.signalManager = new SignalManager();
             this.intentManager = new IntentManager();
@@ -60,6 +61,9 @@ namespace Asteroids.Shared
             this.entityWorld = new EntityWorld();
             this.entityFactory = new ClientEntityFactory(this.entityWorld, game.Content);
 
+            this.minimap = new Minimap();
+            this.scene.AddChild(minimap);
+
             this.entityWorld.SystemManager.AddSystem(new MotionControlSystem(this.entityWorld));
             this.entityWorld.SystemManager.AddSystem(new LifetimeSystem(this.entityWorld, this.signalManager));
             this.entityWorld.SystemManager.AddSystem(new ShootSystem(this.entityWorld, this.entityFactory));
@@ -73,6 +77,7 @@ namespace Asteroids.Shared
             this.entityWorld.SystemManager.AddSystem(new ScoreboardSystem(this.entityWorld, scoreboardUI));
             this.entityWorld.SystemManager.AddSystem(new SpriteAnimationRenderSystem(this.entityWorld));
             this.tagCountSystem = (TagCountSystem)this.entityWorld.SystemManager.AddSystem(new TagCountSystem(this.entityWorld));
+            this.entityWorld.SystemManager.AddSystem(new MinimapRenderSystem(this.entityWorld, this.minimap));
 
             this.CreateScene();
 
@@ -166,7 +171,7 @@ namespace Asteroids.Shared
             ////}
 
             this.Camera.Origin = WindowSettings.RenderArea.Size.ToVector2() / 2f;
-            this.Camera.SetBounds(Vector2.Zero, (GameConfig.WorldSize - WindowSettings.RenderArea.Size + WindowSettings.RenderArea.Location).ToVector2());
+            this.Camera.SetBounds(Vector2.Zero, GameConfig.WorldSize.ToVector2() * WindowSettings.UnitScale - WindowSettings.RenderArea.Size.ToVector2() + WindowSettings.RenderArea.Location.ToVector2());
 
 #if DEBUG
             if (Kadro.Input.KeyboardInput.OnKeyUp(Keys.N))

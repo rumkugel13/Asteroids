@@ -68,6 +68,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Systems\TargetingSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Systems\TextureRenderSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Systems\MinimapRenderSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Minimap.cs" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="$(MSBuildThisFileDirectory)Content\Content.mgcb" />
